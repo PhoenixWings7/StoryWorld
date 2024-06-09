@@ -5,16 +5,17 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Entity(name = "world_elems")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // zapisywanie klas pochodnych - podejście 1 tabeli na typ
 public abstract class WorldElement {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String description;
-    // TODO: implement later
     //private List<ElemAttribute<?>> attributes = new ArrayList<>();
+    @ManyToOne
+    private World world;
 
 
     public WorldElement() {
@@ -48,5 +49,23 @@ public abstract class WorldElement {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    @Override
+    public String toString() {
+        return "WorldElement{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", world=" + world +
+                '}';
     }
 }

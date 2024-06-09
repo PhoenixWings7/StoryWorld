@@ -8,13 +8,14 @@ import java.util.List;
 @Entity(name = "worlds")
 public class World {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String summary;
     @OneToMany()
     private List<Story> stories = new ArrayList<>(1);
-    //private List<WorldElement> worldElements = new ArrayList<>();
+    @OneToMany
+    private List<WorldElement> worldElements = new ArrayList<>();
 
     public World() {
         this.name = "My World";
@@ -56,14 +57,18 @@ public class World {
     public void setStories(List<Story> stories) {
         this.stories = stories;
     }
-/*
+
     public List<WorldElement> getWorldElements() {
         return worldElements;
     }
 
     public void setWorldElements(List<WorldElement> worldElements) {
         this.worldElements = worldElements;
-    }*/
+    }
+
+    public void addElement(WorldElement worldElement) {
+        worldElements.add(worldElement);
+    }
 
     @Override
     public String toString() {
@@ -72,6 +77,7 @@ public class World {
                 ", name='" + name + '\'' +
                 ", summary='" + summary + '\'' +
                 ", stories=" + stories +
+                ", worldElements=" + worldElements +
                 '}';
     }
 }

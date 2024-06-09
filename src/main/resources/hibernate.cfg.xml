@@ -37,5 +37,8 @@
         <mapping class="pl.edu.pjwstk.s24987.model.Chapter"/>
         <mapping class="pl.edu.pjwstk.s24987.model.Story"/>
         <mapping class="pl.edu.pjwstk.s24987.model.ChapterScene"/>
+        <mapping class="pl.edu.pjwstk.s24987.model.WorldElement"/>
+        <mapping class="pl.edu.pjwstk.s24987.model.Character"/>
+        <mapping class="pl.edu.pjwstk.s24987.model.Animal"/>
     </session-factory>
 </hibernate-configuration>

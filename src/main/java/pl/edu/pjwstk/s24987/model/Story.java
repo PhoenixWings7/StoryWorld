@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 public class Story {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     //private List<Chapter> chapters = new ArrayList<>();
