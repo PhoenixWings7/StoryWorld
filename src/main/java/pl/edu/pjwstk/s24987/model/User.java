@@ -2,6 +2,9 @@ package pl.edu.pjwstk.s24987.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity(name = "users")
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"username", "email"}))
 public class User {
@@ -12,6 +15,8 @@ public class User {
     private String email;
     private String passwordHash;
     private boolean isPremium = false;
+    @OneToMany
+    private List<World> worlds = new ArrayList<>();
 
     public User() {}
 
@@ -66,5 +71,17 @@ public class User {
 
     public void setPremium(boolean premium) {
         isPremium = premium;
+    }
+
+    public List<World> getWorlds() {
+        return worlds;
+    }
+
+    public void setWorlds(List<World> worlds) {
+        this.worlds = worlds;
+    }
+
+    public void addWorld(World world) {
+        worlds.add(world);
     }
 }

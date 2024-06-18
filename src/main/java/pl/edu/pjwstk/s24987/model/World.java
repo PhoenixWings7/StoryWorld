@@ -8,28 +8,31 @@ import java.util.List;
 @Entity(name = "worlds")
 public class World {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long id;
     private String name;
     private String summary;
-    @OneToMany()
+    @OneToMany
     private List<Story> stories = new ArrayList<>(1);
     @OneToMany
     private List<WorldElement> worldElements = new ArrayList<>();
+    @ManyToOne
+    private User owner;
 
     public World() {
         this.name = "My World";
     }
 
-    public World(String name) {
+    public World(String name, User owner) {
         this.name = name;
+        this.owner = owner;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
