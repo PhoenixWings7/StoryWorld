@@ -33,5 +33,6 @@
         <mapping class="pl.edu.pjwstk.s24987.model.WorldElement"/>
         <mapping class="pl.edu.pjwstk.s24987.model.Character"/>
         <mapping class="pl.edu.pjwstk.s24987.model.Animal"/>
+        <mapping class="pl.edu.pjwstk.s24987.model.User"/>
     </session-factory>
 </hibernate-configuration>
