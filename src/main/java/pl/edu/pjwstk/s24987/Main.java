@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import pl.edu.pjwstk.s24987.model.Animal;
 import pl.edu.pjwstk.s24987.model.Character;
 import pl.edu.pjwstk.s24987.model.World;
@@ -33,8 +34,10 @@ public class Main {
         SessionFactory sessionFactory = null;
 
         try {
+            Configuration configuration = new Configuration();
             registry = new StandardServiceRegistryBuilder()
-                    .configure() // configures settings from hibernate.cfg.xml
+                    .configure()
+                    .loadProperties("hibernate.properties")
                     .build();
             sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
@@ -46,6 +49,7 @@ public class Main {
              ze względu na dziedziczenie, patrz: klasa WorldElement
              * @see WorldElement
             */
+/*
             session.persist(myCharacter);
             session.persist(myAnimal);
             session.persist(myWorld);
@@ -58,6 +62,7 @@ public class Main {
             System.out.println(STR."First World's elements: \{worldElements}");
             List<WorldElement> createdElements = session.createQuery("from world_elems").list();
             System.out.println(STR."All saved WorldElement objects: \{createdElements}");
+*/
 
             session.close();
         }
