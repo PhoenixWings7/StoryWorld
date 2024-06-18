@@ -1,0 +1,7 @@
+.scene-box {
+    -fx-padding: 10px;
+}
+
+.scene-text-area {
+    -fx-font-size: 14px;
+}

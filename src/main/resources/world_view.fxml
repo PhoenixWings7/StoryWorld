@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pjwstk.s24987.controllers.WorldViewController">
+    <top>
+        <ToolBar prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <Label fx:id="appTitleLabel" styleClass="app-name-label" text="Story World">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </Label>
+                <HBox HBox.hgrow="ALWAYS" />
+                <Button fx:id="homeBtn" mnemonicParsing="false" styleClass="toolbar-btn" text="Home" />
+                <Button fx:id="accountBtn" mnemonicParsing="false" styleClass="toolbar-btn" text="Account" />
+            </items>
+        </ToolBar>
+    </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="worldNameTab" text="World: World Name">
+            <content>
+              <fx:include fx:id="worldTabPage" source="world_page.fxml" />
+            </content>
+          </Tab>
+          <Tab fx:id="storiesTab" text="Stories">
+            <content>
+              <fx:include fx:id="storyTabPage" source="stories_page.fxml" />
+            </content>
+          </Tab>
+            <Tab fx:id="charactersTab" text="Characters">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="placesTab" text="Places">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="animalsTab" text="Animals">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="plantsTab" text="Plants">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="objectsTab" text="Items">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

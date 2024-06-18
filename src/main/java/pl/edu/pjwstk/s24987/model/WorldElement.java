@@ -13,9 +13,14 @@ public abstract class WorldElement {
     private int id;
     private String name;
     private String description;
-    //private List<ElemAttribute<?>> attributes = new ArrayList<>();
     @ManyToOne
     private World world;
+    @ManyToMany
+    private List<ChapterScene> scenes = new ArrayList<>();
+/*
+    @ManyToMany
+    private List<ElemAttribute<?>> attributes = new ArrayList<>();
+*/
 
 
     public WorldElement() {
@@ -57,6 +62,14 @@ public abstract class WorldElement {
 
     public void setWorld(World world) {
         this.world = world;
+    }
+
+    public List<ChapterScene> getScenes() {
+        return scenes;
+    }
+
+    public void setScenes(List<ChapterScene> scenes) {
+        this.scenes = scenes;
     }
 
     @Override

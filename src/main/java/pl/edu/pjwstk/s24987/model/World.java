@@ -58,6 +58,10 @@ public class World {
         this.stories = stories;
     }
 
+    public void addStory(Story story) {
+        stories.add(story);
+    }
+
     public List<WorldElement> getWorldElements() {
         return worldElements;
     }

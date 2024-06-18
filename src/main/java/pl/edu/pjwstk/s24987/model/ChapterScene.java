@@ -1,20 +1,20 @@
 package pl.edu.pjwstk.s24987.model;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "scenes")
 public class ChapterScene {
     @Id
     @GeneratedValue
     private int id;
     private String title;
-    //private List<WorldElement> worldElements = new ArrayList<>();
+    @ManyToOne
+    private Chapter chapter;
+    @ManyToMany
+    private List<WorldElement> worldElements = new ArrayList<>();
 
     public ChapterScene() {
         this.title = "New chapter";
@@ -42,11 +42,11 @@ public class ChapterScene {
         this.title = title;
     }
 
-/*    public List<WorldElement> getWorldElements() {
+    public List<WorldElement> getWorldElements() {
         return worldElements;
     }
 
     public void setWorldElements(List<WorldElement> worldElements) {
         this.worldElements = worldElements;
-    }*/
+    }
 }

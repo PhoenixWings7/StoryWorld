@@ -1,0 +1,25 @@
+.tab-label {
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-font-size: 14px;
+}
+
+.app-name-label {
+    -fx-font-size: 22px;
+    -fx-font-weight: 600;
+}
+
+.section-label {
+    -fx-padding: 5px 0px;
+    -fx-font-size: 14px;
+}
+
+.login-text-field {
+    -fx-font-size: 14px;
+}
+
+#sign-in-btn-box {
+    -fx-padding: 10px;
+}
