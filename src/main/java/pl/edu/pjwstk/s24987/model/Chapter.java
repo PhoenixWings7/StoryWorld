@@ -1,34 +1,37 @@
 package pl.edu.pjwstk.s24987.model;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "chapters")
 public class Chapter {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long id;
+    @Column(nullable = false)
+    @Basic(optional = false)
     private String title;
-    //private List<ChapterScene> scenes = new ArrayList<>();
+    @OneToMany
+    private List<ChapterScene> scenes = new ArrayList<>();
+    @ManyToOne
+    private Story story;
 
     public Chapter() {
         this.title = "New chapter";
     }
 
-    public Chapter(String title) {
+    public Chapter(String title, Story story) {
         this.title = title;
+        this.story = story;
     }
 
-    @Id
-    @GeneratedValue
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -41,11 +44,19 @@ public class Chapter {
         this.title = title;
     }
 
-/*    public List<ChapterScene> getScenes() {
+    public List<ChapterScene> getScenes() {
         return scenes;
     }
 
     public void setScenes(List<ChapterScene> scenes) {
         this.scenes = scenes;
-    }*/
+    }
+
+    public Story getStory() {
+        return story;
+    }
+
+    public void setStory(Story story) {
+        this.story = story;
+    }
 }

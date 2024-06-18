@@ -5,13 +5,16 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "stories")
 public class Story {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long id;
+    @Column(nullable = false)
+    @Basic(optional = false)
     private String title;
-    //private List<Chapter> chapters = new ArrayList<>();
+    @OneToMany
+    private List<Chapter> chapters = new ArrayList<>();
     @ManyToOne
     World world;
 
@@ -22,11 +25,11 @@ public class Story {
         this.title = title;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -39,9 +42,13 @@ public class Story {
         this.title = title;
     }
 
-/*    public List<Chapter> getChapters() {
+    public List<Chapter> getChapters() {
         return chapters;
-    }*/
+    }
+
+    public void setChapters(List<Chapter> chapters) {
+        this.chapters = chapters;
+    }
 
     public World getWorld() {
         return world;

@@ -11,9 +11,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
+    @Basic(optional = false)
     private String username;
+    @Column(nullable = false)
+    @Basic(optional = false)
     private String email;
+    @Column(nullable = false)
+    @Basic(optional = false)
     private String passwordHash;
+    @Column(nullable = false)
+    @Basic(optional = false)
     private boolean isPremium = false;
     @OneToMany
     private List<World> worlds = new ArrayList<>();

@@ -10,6 +10,8 @@ public class World {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+    @Column(nullable = false)
+    @Basic(optional = false)
     private String name;
     private String summary;
     @OneToMany
