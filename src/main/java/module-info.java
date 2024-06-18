@@ -5,6 +5,7 @@ module StoryWorld {
     requires org.hibernate.orm.core;
     requires jakarta.persistence;
     requires java.naming;
+    requires jbcrypt;
 
     opens pl.edu.pjwstk.s24987 to javafx.fxml;
     opens pl.edu.pjwstk.s24987.controllers to javafx.fxml;
