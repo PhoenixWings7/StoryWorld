@@ -79,6 +79,14 @@ public class World {
         worldElements.add(worldElement);
     }
 
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
     @Override
     public String toString() {
         return "World{" +
