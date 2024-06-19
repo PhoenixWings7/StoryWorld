@@ -13,7 +13,7 @@ public class Chapter {
     @Column(nullable = false)
     @Basic(optional = false)
     private String title;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<ChapterScene> scenes = new ArrayList<>();
     @ManyToOne
     private Story story;

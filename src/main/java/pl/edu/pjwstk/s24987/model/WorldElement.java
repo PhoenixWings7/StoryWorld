@@ -17,7 +17,7 @@ public abstract class WorldElement {
     private World world;
     @ManyToMany
     private List<ChapterScene> scenes = new ArrayList<>();
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<ElemAttribute<?>> attributes = new ArrayList<>();
 
 

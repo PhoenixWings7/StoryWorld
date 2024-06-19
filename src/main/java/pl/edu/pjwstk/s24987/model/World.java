@@ -14,9 +14,9 @@ public class World {
     @Basic(optional = false)
     private String name;
     private String summary;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Story> stories = new ArrayList<>(1);
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<WorldElement> worldElements = new ArrayList<>();
     @ManyToOne
     private User owner;

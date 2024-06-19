@@ -13,7 +13,7 @@ public class Story {
     @Column(nullable = false)
     @Basic(optional = false)
     private String title;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Chapter> chapters = new ArrayList<>();
     @ManyToOne
     World world;

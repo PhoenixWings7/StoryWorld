@@ -23,7 +23,7 @@ public class User {
     @Column(nullable = false)
     @Basic(optional = false)
     private boolean isPremium = false;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<World> worlds = new ArrayList<>();
 
     public User() {}
