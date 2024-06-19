@@ -37,4 +37,18 @@ public class ChapterScene {
     public void setWorldElements(List<WorldElement> worldElements) {
         this.worldElements = worldElements;
     }
+
+    public void linkWorldElement(WorldElement worldElement) {
+        worldElements.add(worldElement);
+        worldElement.linkScene(this);
+    }
+
+    public void unlinkWorldElement(WorldElement worldElement) {
+        worldElements.remove(worldElement);
+        worldElement.unlinkScene(this);
+    }
+
+    public boolean checkLinkToElement(WorldElement worldElement) {
+        return worldElements.contains(worldElement);
+    }
 }

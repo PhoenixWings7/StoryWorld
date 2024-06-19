@@ -94,6 +94,14 @@ public abstract class WorldElement {
         attributes.remove(attribute);
     }
 
+    protected void linkScene(ChapterScene scene) {
+        scenes.add(scene);
+    }
+
+    protected void unlinkScene(ChapterScene scene) {
+        scenes.remove(scene);
+    }
+
     @Override
     public String toString() {
         return "WorldElement{" +
