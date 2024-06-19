@@ -46,7 +46,7 @@ public abstract class ElemAttribute<T> {
         return worldElement;
     }
 
-    public void setWorldElement(WorldElement world) {
-        this.worldElement = world;
+    public void setWorldElement(WorldElement worldElement) {
+        this.worldElement = worldElement;
     }
 }
