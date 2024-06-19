@@ -19,4 +19,12 @@ public class Character extends WorldElement {
         this.addAttribute(personality);
         this.addAttribute(physicalAppearance);
     }
+
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
+    }
 }
