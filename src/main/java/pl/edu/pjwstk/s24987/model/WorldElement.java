@@ -9,18 +9,16 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // zapisywanie klas pochodnych - podejście 1 tabeli na typ
 public abstract class WorldElement {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long id;
     private String name;
     private String description;
     @ManyToOne
     private World world;
     @ManyToMany
     private List<ChapterScene> scenes = new ArrayList<>();
-/*
-    @ManyToMany
+    @OneToMany
     private List<ElemAttribute<?>> attributes = new ArrayList<>();
-*/
 
 
     public WorldElement() {
@@ -32,11 +30,11 @@ public abstract class WorldElement {
     }
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -70,6 +68,14 @@ public abstract class WorldElement {
 
     public void setScenes(List<ChapterScene> scenes) {
         this.scenes = scenes;
+    }
+
+    public List<ElemAttribute<?>> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(List<ElemAttribute<?>> attributes) {
+        this.attributes = attributes;
     }
 
     @Override

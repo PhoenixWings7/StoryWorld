@@ -34,5 +34,9 @@
         <mapping class="pl.edu.pjwstk.s24987.model.Character"/>
         <mapping class="pl.edu.pjwstk.s24987.model.Animal"/>
         <mapping class="pl.edu.pjwstk.s24987.model.User"/>
+        <mapping class="pl.edu.pjwstk.s24987.model.ElemAttribute"/>
+        <mapping class="pl.edu.pjwstk.s24987.model.TextAttribute"/>
+        <mapping class="pl.edu.pjwstk.s24987.model.FractalNumAttribute"/>
+        <mapping class="pl.edu.pjwstk.s24987.model.WholeNumAttribute"/>
     </session-factory>
 </hibernate-configuration>
