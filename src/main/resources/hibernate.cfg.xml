@@ -37,6 +37,7 @@
         <mapping class="pl.edu.pjwstk.s24987.model.Item"/>
         <mapping class="pl.edu.pjwstk.s24987.model.Place"/>
         <mapping class="pl.edu.pjwstk.s24987.model.User"/>
+        <mapping class="pl.edu.pjwstk.s24987.model.PremiumUser"/>
         <mapping class="pl.edu.pjwstk.s24987.model.ElemAttribute"/>
         <mapping class="pl.edu.pjwstk.s24987.model.TextAttribute"/>
         <mapping class="pl.edu.pjwstk.s24987.model.FractalNumAttribute"/>
