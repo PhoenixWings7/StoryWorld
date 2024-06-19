@@ -78,6 +78,22 @@ public abstract class WorldElement {
         this.attributes = attributes;
     }
 
+    public void addAttribute(TextAttribute attribute) {
+        attributes.add(attribute);
+    }
+
+    public void addAttribute(WholeNumAttribute attribute) {
+        attributes.add(attribute);
+    }
+
+    public void addAttribute(FractalNumAttribute attribute) {
+        attributes.add(attribute);
+    }
+
+    public void deleteAttribute(ElemAttribute<?> attribute) {
+        attributes.remove(attribute);
+    }
+
     @Override
     public String toString() {
         return "WorldElement{" +
