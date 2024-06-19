@@ -63,7 +63,8 @@ public class World {
         this.stories = stories;
     }
 
-    public void addStory(Story story) {
+    public void addNewStory() {
+        Story story = new Story("");
         stories.add(story);
     }
 

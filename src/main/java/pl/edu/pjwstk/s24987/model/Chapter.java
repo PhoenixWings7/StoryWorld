@@ -19,12 +19,13 @@ public class Chapter {
     private Story story;
 
     public Chapter() {
-        this.title = "New chapter";
+        this.title = "";
     }
 
     public Chapter(String title, Story story) {
         this.title = title;
         this.story = story;
+        addNewScene();
     }
 
     public long getId() {
@@ -58,5 +59,10 @@ public class Chapter {
 
     public void setStory(Story story) {
         this.story = story;
+    }
+
+    public void addNewScene() {
+        ChapterScene newScene = new ChapterScene(this);
+        scenes.add(newScene);
     }
 }

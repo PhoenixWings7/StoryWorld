@@ -23,6 +23,7 @@ public class Story {
 
     public Story(String title) {
         this.title = title;
+        addNewChapter();
     }
 
     public long getId() {
@@ -56,5 +57,10 @@ public class Story {
 
     public void setWorld(World world) {
         this.world = world;
+    }
+
+    public void addNewChapter() {
+        Chapter newChapter = new Chapter("", this);
+        chapters.add(newChapter);
     }
 }
