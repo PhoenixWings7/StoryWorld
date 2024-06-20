@@ -59,7 +59,7 @@ public class HomeViewController implements Initializable {
     }
 
     private void goToWorldView(Stage primaryStage, Long worldId) throws IOException {
-        primaryStage.setUserData(worldId);
+        storyWorldDao.setSelectedWorldId(worldId);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/world_view.fxml"));
         Scene worldViewScene = new Scene(fxmlLoader.load());
         primaryStage.setScene(worldViewScene);

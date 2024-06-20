@@ -20,4 +20,8 @@ public interface StoryWorldDao {
     public List<String> getWorldNames();
     public List<World> getAllWorlds();
     public World getWorldData(Long worldId);
+
+    public void setSelectedWorldId(Long worldId);
+
+    public Long getSelectedWorldId();
 }

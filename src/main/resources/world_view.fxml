@@ -30,9 +30,9 @@
         </ToolBar>
     </top>
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab fx:id="worldNameTab" text="World: World Name">
+          <Tab fx:id="worldTab" onSelectionChanged="#onWorldTabSelected" text="World: World Name">
             <content>
               <fx:include fx:id="worldTabPage" source="world_page.fxml" />
             </content>
