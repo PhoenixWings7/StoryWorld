@@ -24,6 +24,7 @@ public class User {
     @Basic(optional = false)
     private boolean isPremium = false;
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "owner_id")
     private List<World> worlds = new ArrayList<>();
 
     public User() {}
