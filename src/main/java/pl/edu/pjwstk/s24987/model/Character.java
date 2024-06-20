@@ -6,12 +6,10 @@ import jakarta.persistence.Entity;
 public class Character extends WorldElement {
     private String background;
 
-    public Character() {
-        this("New character");
-    }
+    public Character() { super(); }
 
-    public Character(String name) {
-        super(name);
+    public Character(String name, World world) {
+        super(name, world);
         WholeNumAttribute age = new WholeNumAttribute("Age", null, this);
         TextAttribute personality = new TextAttribute("Personality", null, this);
         TextAttribute physicalAppearance = new TextAttribute("Physical appearance", null, this);

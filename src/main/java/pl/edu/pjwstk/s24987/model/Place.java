@@ -17,11 +17,11 @@ public class Place extends WorldElement {
     private List<Place> secondaryPlaces = new ArrayList<>();
 
     public Place() {
-        super("New place");
+        super();
     }
 
-    public Place(String name) {
-        super(name);
+    public Place(String name, World world) {
+        super(name, world);
     }
 
     public PlaceType getType() {

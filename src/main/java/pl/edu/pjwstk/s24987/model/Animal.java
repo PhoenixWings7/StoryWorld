@@ -5,10 +5,10 @@ import jakarta.persistence.Entity;
 @Entity(name = "animals")
 public class Animal extends WorldElement {
     public Animal() {
-        super("New animal");
+        super();
     }
 
-    public Animal(String name) {
-        super(name);
+    public Animal(String name, World world) {
+        super(name, world);
     }
 }

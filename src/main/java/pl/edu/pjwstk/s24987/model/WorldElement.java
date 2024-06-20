@@ -25,8 +25,10 @@ public abstract class WorldElement {
         this.name = "Element";
     }
 
-    public WorldElement(String name) {
+    public WorldElement(String name, World world) {
         this.name = name;
+        this.world = world;
+        world.addElement(this);
     }
 
 

@@ -2,10 +2,10 @@ package pl.edu.pjwstk.s24987.model;
 
 public class Item extends WorldElement {
     public Item() {
-        super("New item");
+        super();
     }
 
-    public Item(String name) {
-        super(name);
+    public Item(String name, World world) {
+        super(name, world);
     }
 }
