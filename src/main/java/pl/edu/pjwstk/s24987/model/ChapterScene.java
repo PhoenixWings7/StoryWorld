@@ -13,7 +13,7 @@ public class ChapterScene {
     @ManyToOne
     private Chapter chapter;
     private String content;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<WorldElement> worldElements = new ArrayList<>();
 
     public ChapterScene() {}
