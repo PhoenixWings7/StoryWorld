@@ -26,10 +26,10 @@
                   <Label styleClass="section-label" text="Login" />
                   <TextField fx:id="loginTextField" minWidth="-Infinity" promptText="username" styleClass="login-text-field" />
                   <Label styleClass="section-label" text="Password" />
-                  <PasswordField fx:id="passwordTextField" minWidth="-Infinity" promptText="password" styleClass="login-text-field" />
+                  <PasswordField fx:id="passwordTextField" minWidth="-Infinity" onAction="#onSignIn" promptText="password" styleClass="login-text-field" />
                   <HBox id="sign-in-btn-box" alignment="TOP_CENTER">
                      <children>
-                        <Button id="sign-in-btn" fx:id="signInButton" alignment="CENTER" mnemonicParsing="false" text="Sign in" textAlignment="CENTER" />
+                        <Button id="sign-in-btn" fx:id="signInButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSignIn" text="Sign in" textAlignment="CENTER" />
                      </children>
                   </HBox>
                </children>
