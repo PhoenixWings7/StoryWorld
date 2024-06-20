@@ -17,6 +17,7 @@ public class WorldViewController {
     public void onWorldTabSelected(Event event) {
         Long worldId = storyWorldDao.getSelectedWorldId();
         world = storyWorldDao.getWorldData(worldId);
+        storyWorldDao.setSelectedWorld(world);
         worldTab.setText(STR."World: \{world.getName()}");
     }
 

@@ -10,6 +10,7 @@ import java.util.List;
 public class StoryWorldDaoImpl implements StoryWorldDao {
     private static Long currentUserId = null;
     private static Long lastWorldId = null;
+    private static World lastWorld = null;
 
     @Override
     public boolean signIn(String username, String password) {
@@ -89,5 +90,15 @@ public class StoryWorldDaoImpl implements StoryWorldDao {
     @Override
     public Long getSelectedWorldId() {
         return lastWorldId;
+    }
+
+    @Override
+    public World getSelectedWorld() {
+        return lastWorld;
+    }
+
+    @Override
+    public void setSelectedWorld(World selectedWorld) {
+        lastWorld = selectedWorld;
     }
 }

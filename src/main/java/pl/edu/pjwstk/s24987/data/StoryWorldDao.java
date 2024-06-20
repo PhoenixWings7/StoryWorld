@@ -24,4 +24,8 @@ public interface StoryWorldDao {
     public void setSelectedWorldId(Long worldId);
 
     public Long getSelectedWorldId();
+
+    public World getSelectedWorld();
+
+    public void setSelectedWorld(World selectedWorld);
 }
