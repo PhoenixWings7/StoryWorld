@@ -1,5 +1,7 @@
 package pl.edu.pjwstk.s24987.data;
 
+import pl.edu.pjwstk.s24987.model.World;
+
 import java.util.List;
 
 public interface StoryWorldDao {
@@ -16,4 +18,6 @@ public interface StoryWorldDao {
     public Long getCurrentUserId();
 
     public List<String> getWorldNames();
+    public List<World> getAllWorlds();
+    public World getWorldData(Long worldId);
 }

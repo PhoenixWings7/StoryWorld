@@ -14,9 +14,9 @@ public class World {
     @Basic(optional = false)
     private String name;
     private String summary;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Story> stories = new ArrayList<>(1);
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<WorldElement> worldElements = new ArrayList<>();
     @ManyToOne
     private User owner;
@@ -90,5 +90,10 @@ public class World {
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

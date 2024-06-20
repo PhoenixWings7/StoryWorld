@@ -1,13 +1,16 @@
 package pl.edu.pjwstk.s24987.data;
 
+import javafx.util.Pair;
 import org.hibernate.Session;
 import pl.edu.pjwstk.s24987.model.User;
+import pl.edu.pjwstk.s24987.model.World;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StoryWorldDaoImpl implements StoryWorldDao {
     private static Long currentUserId = null;
+    //private static World
 
     @Override
     public boolean signIn(String username, String password) {
@@ -44,5 +47,38 @@ public class StoryWorldDaoImpl implements StoryWorldDao {
                 .list();
         LocalDbHandler.closeCurrentSession();
         return worldNames;
+    }
+
+
+    @Override
+    public List<World> getAllWorlds() {
+        List<World> worlds = new ArrayList<>();
+        Session session = LocalDbHandler.getCurrentSession();
+        worlds = session
+                .createQuery("from worlds where owner.id = :userId", World.class)
+                .setParameter("userId", currentUserId)
+                .list();
+        LocalDbHandler.closeCurrentSession();
+        return worlds;
+    }
+
+    @Override
+    public World getWorldData(Long worldId) {
+        World world;
+        Session session = LocalDbHandler.getCurrentSession();
+        List<World> worlds = session
+                .createQuery("from worlds where id = :worldId", World.class)
+                .setParameter("worldId", worldId)
+                .list();
+        if (worlds.isEmpty()) {
+            LocalDbHandler.closeCurrentSession();
+            return null;
+        }
+
+        world = worlds.getFirst();
+        world.getStories().size();
+        world.getWorldElements().size();
+        LocalDbHandler.closeCurrentSession();
+        return world;
     }
 }

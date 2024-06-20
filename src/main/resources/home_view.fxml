@@ -35,7 +35,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <ListView fx:id="worldsListView" />
+            <ListView fx:id="worldsListView" onMouseClicked="#onWorldsListClicked" />
             <HBox prefWidth="200.0">
                <children>
                   <HBox HBox.hgrow="ALWAYS" />
