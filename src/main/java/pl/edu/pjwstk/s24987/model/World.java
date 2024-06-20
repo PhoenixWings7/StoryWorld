@@ -64,7 +64,11 @@ public class World {
     }
 
     public void addNewStory() {
-        Story story = new Story("");
+        addNewStory("");
+    }
+
+    public void addNewStory(String title) {
+        Story story = new Story(title, this);
         stories.add(story);
     }
 
