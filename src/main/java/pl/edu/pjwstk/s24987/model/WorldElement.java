@@ -103,14 +103,4 @@ public abstract class WorldElement {
     protected void unlinkScene(ChapterScene scene) {
         scenes.remove(scene);
     }
-
-    @Override
-    public String toString() {
-        return "WorldElement{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", world=" + world +
-                '}';
-    }
 }

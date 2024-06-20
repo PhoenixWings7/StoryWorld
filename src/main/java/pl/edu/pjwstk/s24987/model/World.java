@@ -91,15 +91,4 @@ public class World {
     public void setOwner(User owner) {
         this.owner = owner;
     }
-
-    @Override
-    public String toString() {
-        return "World{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", summary='" + summary + '\'' +
-                ", stories=" + stories +
-                ", worldElements=" + worldElements +
-                '}';
-    }
 }
