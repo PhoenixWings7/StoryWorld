@@ -21,8 +21,9 @@ public class Story {
     public Story() {
     }
 
-    public Story(String title) {
+    public Story(String title, World world) {
         this.title = title;
+        this.world = world;
         addNewChapter();
     }
 
