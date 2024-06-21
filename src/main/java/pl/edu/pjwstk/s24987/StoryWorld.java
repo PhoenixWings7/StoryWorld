@@ -20,7 +20,7 @@ public class StoryWorld extends Application {
         LocalDbHandler.connectToDb();
         LocalDbHandler.initializeExampleDb();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/login_view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load());
 
         primaryStage.setTitle(APP_NAME);
         primaryStage.setMaximized(false);

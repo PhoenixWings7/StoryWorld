@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="tab-pane" stylesheets="@world_view_tab_pane.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pjwstk.s24987.controllers.WorldPageController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="tab-pane" stylesheets="@world_view_tab_pane.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pjwstk.s24987.controllers.WorldPageController">
    <children>
       <VBox layoutX="191.0" layoutY="77.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField id="world-name-text-field" promptText="Your World's Name" styleClass="title-text-field" />
+            <TextField id="world-name-text-field" minWidth="200.0" promptText="Your World's Name" styleClass="title-text-field" />
             <Label styleClass="section-label" text="Summary" />
-            <TextArea minHeight="200.0" />
+            <TextArea minHeight="200.0" minWidth="200.0" />
          </children>
       </VBox>
    </children>
