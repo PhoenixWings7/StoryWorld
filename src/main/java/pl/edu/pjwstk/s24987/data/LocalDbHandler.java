@@ -33,6 +33,9 @@ public class LocalDbHandler {
         myWorld.getStories().getFirst().addNewChapter();
         myWorld.getStories().getFirst().getChapters().getFirst().addNewScene();
         myWorld.getStories().getFirst().getChapters().getFirst().addNewScene();
+        myWorld.getStories().getFirst().getChapters().getFirst().getScenes().getFirst().linkWorldElement(myCharacter);
+        myWorld.getStories().getFirst().getChapters().getFirst().getScenes().getFirst().linkWorldElement(myAnimal);
+        myWorld.getStories().getFirst().getChapters().getFirst().getScenes().get(1).linkWorldElement(myAnimal);
 
         Session session = sessionFactory.openSession();
         session.beginTransaction();
