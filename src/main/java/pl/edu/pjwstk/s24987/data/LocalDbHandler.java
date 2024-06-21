@@ -29,6 +29,10 @@ public class LocalDbHandler {
         WorldElement myCharacter = new Character("Cassie", myWorld);
         Animal myAnimal = new Animal("Cloud Squirrel", myWorld);
         myWorld.addNewStory("Silly Little Story");
+        myWorld.getStories().getFirst().addNewChapter();
+        myWorld.getStories().getFirst().addNewChapter();
+        myWorld.getStories().getFirst().getChapters().getFirst().addNewScene();
+        myWorld.getStories().getFirst().getChapters().getFirst().addNewScene();
 
         Session session = sessionFactory.openSession();
         session.beginTransaction();

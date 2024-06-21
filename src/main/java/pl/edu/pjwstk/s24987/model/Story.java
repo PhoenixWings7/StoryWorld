@@ -61,7 +61,7 @@ public class Story {
     }
 
     public void addNewChapter() {
-        Chapter newChapter = new Chapter("", this);
+        Chapter newChapter = new Chapter("Chapter", this);
         chapters.add(newChapter);
     }
 
