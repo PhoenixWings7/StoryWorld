@@ -1,5 +1,6 @@
 package pl.edu.pjwstk.s24987.data;
 
+import pl.edu.pjwstk.s24987.model.Story;
 import pl.edu.pjwstk.s24987.model.World;
 
 import java.util.List;
@@ -28,4 +29,8 @@ public interface StoryWorldDao {
     public World getSelectedWorld();
 
     public void setSelectedWorld(World selectedWorld);
+
+    public void setSelectedStoryId(Long selectedStoryId);
+
+    public Story getSelectedStory();
 }

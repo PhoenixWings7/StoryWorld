@@ -1,6 +1,7 @@
 package pl.edu.pjwstk.s24987.data;
 
 import org.hibernate.Session;
+import pl.edu.pjwstk.s24987.model.Story;
 import pl.edu.pjwstk.s24987.model.User;
 import pl.edu.pjwstk.s24987.model.World;
 
@@ -11,6 +12,7 @@ public class StoryWorldDaoImpl implements StoryWorldDao {
     private static Long currentUserId = null;
     private static Long lastWorldId = null;
     private static World lastWorld = null;
+    private static Long lastStoryId = null;
 
     @Override
     public boolean signIn(String username, String password) {
@@ -100,5 +102,15 @@ public class StoryWorldDaoImpl implements StoryWorldDao {
     @Override
     public void setSelectedWorld(World selectedWorld) {
         lastWorld = selectedWorld;
+    }
+
+    @Override
+    public void setSelectedStoryId(Long selectedStoryId) {
+        lastStoryId = selectedStoryId;
+    }
+
+    @Override
+    public Story getSelectedStory() {
+        return lastWorld.getStory(lastStoryId);
     }
 }

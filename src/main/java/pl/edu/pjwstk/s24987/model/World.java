@@ -92,6 +92,14 @@ public class World {
         this.owner = owner;
     }
 
+    public Story getStory(Long storyId) {
+        for (Story story : stories) {
+            if (story.getId() == storyId)
+                return story;
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return name;

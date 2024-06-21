@@ -9,7 +9,7 @@
 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1080.0" prefWidth="1920.0" styleClass="tab-pane" stylesheets="@world_view_tab_pane.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pjwstk.s24987.controllers.StoriesPageController">
    <children>
       <Label styleClass="section-label" text="All stories" />
-      <ListView fx:id="storiesListView" />
+      <ListView fx:id="storiesListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#onStoriesListClicked" />
       <HBox styleClass="btn-box">
          <children>
             <HBox HBox.hgrow="ALWAYS" />

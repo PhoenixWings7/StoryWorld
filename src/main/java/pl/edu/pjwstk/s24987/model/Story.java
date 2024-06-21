@@ -64,4 +64,9 @@ public class Story {
         Chapter newChapter = new Chapter("", this);
         chapters.add(newChapter);
     }
+
+    @Override
+    public String toString() {
+        return title;
+    }
 }
