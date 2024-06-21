@@ -30,6 +30,22 @@ public class ChapterScene {
         this.id = id;
     }
 
+    public Chapter getChapter() {
+        return chapter;
+    }
+
+    public void setChapter(Chapter chapter) {
+        this.chapter = chapter;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public List<WorldElement> getWorldElements() {
         return worldElements;
     }

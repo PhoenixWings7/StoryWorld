@@ -65,4 +65,9 @@ public class Chapter {
         ChapterScene newScene = new ChapterScene(this);
         scenes.add(newScene);
     }
+
+    @Override
+    public String toString() {
+        return title;
+    }
 }

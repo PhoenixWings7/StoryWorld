@@ -1,0 +1,11 @@
+.story-title-text-field {
+    -fx-text-box-border: transparent;
+    -fx-background-color: blank;
+    -fx-alignment: center;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.scene-text-area {
+    -fx-font-size: 14px;
+}
