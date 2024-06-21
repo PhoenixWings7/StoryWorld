@@ -12,6 +12,7 @@ import pl.edu.pjwstk.s24987.data.StoryWorldDaoImpl;
 import pl.edu.pjwstk.s24987.model.Chapter;
 import pl.edu.pjwstk.s24987.model.ChapterScene;
 import pl.edu.pjwstk.s24987.model.Story;
+import pl.edu.pjwstk.s24987.model.WorldElement;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class SingleStoryViewController implements Initializable {
 
         adjustButtons(selectedChapterIndex);
         displayScenes(selectedChapter.getScenes());
-        // todo: get scene to object associations and display them
+        displayChapterWorldElements(selectedChapter.getScenes());
     }
 
     private void adjustButtons(int selectedChapterIndex) {
@@ -109,5 +110,27 @@ public class SingleStoryViewController implements Initializable {
         }
 
         scenesVBox.getChildren().setAll(sceneNodes);
+    }
+
+    private void displayChapterWorldElements(List<ChapterScene> scenes) {
+        ArrayList<TitledPane> panes = new ArrayList<>(scenes.size());
+        for (int i = 0; i < scenes.size(); i++) {
+            ChapterScene scene = scenes.get(i);
+
+            // create list of objects
+            VBox objListBox = new VBox();
+            for (WorldElement element : scene.getWorldElements()) {
+                Label objNameLabel = new Label(element.getName());
+                objNameLabel.getStyleClass().add("obj-list-label");
+                objListBox.getChildren().add(objNameLabel);
+            }
+
+            // create and add the new TitledPane
+            Button linkObjBtn = new Button("Link object");
+            VBox contentVBox = new VBox(objListBox, linkObjBtn);
+            TitledPane pane = new TitledPane(STR."Scene \{i + 1}", contentVBox);
+            panes.add(pane);
+        }
+        sceneObjectsAccordion.getPanes().setAll(panes);
     }
 }

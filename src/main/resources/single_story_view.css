@@ -9,3 +9,8 @@
 .scene-text-area {
     -fx-font-size: 14px;
 }
+
+.obj-list-label {
+    -fx-padding: 0px 0px 5px 0px;
+    -fx-font-size: 13px;
+}

@@ -103,4 +103,9 @@ public abstract class WorldElement {
     protected void unlinkScene(ChapterScene scene) {
         scenes.remove(scene);
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
