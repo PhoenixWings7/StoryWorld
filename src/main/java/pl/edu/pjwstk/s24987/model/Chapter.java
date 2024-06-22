@@ -61,6 +61,9 @@ public class Chapter {
         this.story = story;
     }
 
+    /**
+     * Adds a new empty scene to the chapter
+     */
     public void addNewScene() {
         ChapterScene newScene = new ChapterScene(this);
         scenes.add(newScene);

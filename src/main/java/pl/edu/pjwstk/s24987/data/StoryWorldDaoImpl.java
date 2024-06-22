@@ -40,18 +40,6 @@ public class StoryWorldDaoImpl implements StoryWorldDao {
         return currentUserId;
     }
 
-    @Override
-    public List<String> getWorldNames() {
-        List<String> worldNames = new ArrayList<>();
-        Session session = LocalDbHandler.getCurrentSession();
-        worldNames = session
-                .createQuery("select name from worlds where owner.id = :userId", String.class)
-                .setParameter("userId", currentUserId)
-                .list();
-        LocalDbHandler.closeCurrentSession();
-        return worldNames;
-    }
-
 
     @Override
     public List<World> getAllWorlds() {

@@ -15,12 +15,16 @@ public interface StoryWorldDao {
     public boolean signIn(String username, String password);
 
     /**
-     * @return currently logged-in User
+     * @return currently logged-in User's ID
      */
     public Long getCurrentUserId();
 
-    public List<String> getWorldNames();
+    /**
+     * Fetches all worlds created by the currently logged-in user
+     * @return list of worlds
+     */
     public List<World> getAllWorlds();
+
     public World getWorldData(Long worldId);
 
     public void setSelectedWorldId(Long worldId);
@@ -35,5 +39,9 @@ public interface StoryWorldDao {
 
     public Story getSelectedStory();
 
+    /**
+     * Saves the chapter object and refreshes it with data from the database
+     * @param chapter chapter to update
+     */
     public void updateChapter(Chapter chapter);
 }

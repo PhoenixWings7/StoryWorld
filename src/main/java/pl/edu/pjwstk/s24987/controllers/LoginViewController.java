@@ -37,7 +37,7 @@ public class LoginViewController {
 
         boolean signInSuccessful = storyWorldDao.signIn(loginEntered, passwordEntered);
         if (signInSuccessful) {
-            System.out.println("Signed in!");
+            // go to the home view
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/home_view.fxml"));
             Scene homeViewScene = new Scene(fxmlLoader.load());

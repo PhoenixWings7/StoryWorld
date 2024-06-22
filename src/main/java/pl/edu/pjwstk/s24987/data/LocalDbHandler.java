@@ -10,6 +10,9 @@ import org.mindrot.jbcrypt.BCrypt;
 import pl.edu.pjwstk.s24987.model.Character;
 import pl.edu.pjwstk.s24987.model.*;
 
+/**
+ * Class to manage local database connections
+ */
 public class LocalDbHandler {
     private static SessionFactory sessionFactory = null;
     private static Session currentSession = null;
@@ -22,6 +25,9 @@ public class LocalDbHandler {
         sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
     }
 
+    /**
+     * Add example data to the database
+     */
     public static void initializeExampleDb() {
         User myUser = new User("PhoenixWings7", "dummy@email.com", hashPassword("password"));
         World myWorld = new World("Magical World", myUser);
@@ -45,6 +51,10 @@ public class LocalDbHandler {
         session.close();
     }
 
+    /**
+     * Begins transaction and returns the associated session
+     * @return a new Session object if no session open or the current open session
+     */
     public static Session getCurrentSession() {
         if (currentSession == null) {
             currentSession = sessionFactory.openSession();
@@ -53,6 +63,9 @@ public class LocalDbHandler {
         return currentSession;
     }
 
+    /**
+     * Commits changes made in the latest opened session & closes the session
+     */
     public static void closeCurrentSession() {
         if (currentSession != null) {
             currentSession.getTransaction().commit();
@@ -80,10 +93,19 @@ public class LocalDbHandler {
         }
     }
 
+    /**
+     * @param password plain text password
+     * @return password hashed with salt
+     */
     public static String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
+    /**
+     * @param hashFromDb password hash
+     * @param passwordEntered plain text password to compare
+     * @return true if passwords match, false otherwise
+     */
     public static boolean comparePasswords(String hashFromDb, String passwordEntered) {
         return BCrypt.checkpw(passwordEntered, hashFromDb);
     }

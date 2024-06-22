@@ -60,6 +60,9 @@ public class Story {
         this.world = world;
     }
 
+    /**
+     * Adds a new chapter to the story with a default title
+     */
     public void addNewChapter() {
         Chapter newChapter = new Chapter("Chapter", this);
         chapters.add(newChapter);

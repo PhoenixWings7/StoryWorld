@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity(name = "users")
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"username", "email"}))
+@Inheritance
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

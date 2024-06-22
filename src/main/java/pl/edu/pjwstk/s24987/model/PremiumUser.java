@@ -1,5 +1,8 @@
 package pl.edu.pjwstk.s24987.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class PremiumUser extends User {
     public PremiumUser() {
     }

@@ -54,16 +54,29 @@ public class ChapterScene {
         this.worldElements = worldElements;
     }
 
+    /**
+     * Links the world element to the scene and vice versa
+     * @param worldElement world element to link
+     */
     public void linkWorldElement(WorldElement worldElement) {
         worldElements.add(worldElement);
         worldElement.linkScene(this);
     }
 
+    /**
+     * Unlinks the world element from the scene and vice versa
+     * @param worldElement world element to unlink
+     */
     public void unlinkWorldElement(WorldElement worldElement) {
         worldElements.remove(worldElement);
         worldElement.unlinkScene(this);
     }
 
+    /**
+     * Checks if the scene is currently linked to the world element
+     * @param worldElement world element to check
+     * @return true if the scene is linked to the world element
+     */
     public boolean checkLinkToElement(WorldElement worldElement) {
         return worldElements.contains(worldElement);
     }

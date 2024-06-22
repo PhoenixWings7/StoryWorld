@@ -67,6 +67,10 @@ public class World {
         addNewStory("");
     }
 
+    /**
+     * Adds a new story to the world with a specified title
+     * @param title title of the new story
+     */
     public void addNewStory(String title) {
         Story story = new Story(title, this);
         stories.add(story);

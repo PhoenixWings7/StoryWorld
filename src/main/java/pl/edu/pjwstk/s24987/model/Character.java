@@ -8,6 +8,11 @@ public class Character extends WorldElement {
 
     public Character() { super(); }
 
+    /**
+     * Creates a new character with a specified name and 3 default attributes: age, personality & physical appearance
+     * @param name character's name
+     * @param world the world in which this character should exist
+     */
     public Character(String name, World world) {
         super(name, world);
         WholeNumAttribute age = new WholeNumAttribute("Age", null, this);
