@@ -157,7 +157,8 @@ public class SingleStoryViewController implements Initializable {
         // map world elements to a list of choices
         choices.setCellFactory(CheckBoxListCell.forListView(worldElement -> {
             boolean doSelect = scene.getWorldElements().contains(worldElement);
-            selected.add(worldElement);
+            if (doSelect && !selected.contains(worldElement))
+                selected.add(worldElement);
             ObservableBooleanValue observableValue = new SimpleBooleanProperty(doSelect);
             // handle checkbox state change
             observableValue.addListener((observableVal, wasSelected, isSelected) -> {
