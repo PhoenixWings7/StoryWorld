@@ -19,10 +19,7 @@ import pl.edu.pjwstk.s24987.model.Story;
 import pl.edu.pjwstk.s24987.model.WorldElement;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class SingleStoryViewController implements Initializable {
     private Story story;
@@ -177,12 +174,24 @@ public class SingleStoryViewController implements Initializable {
             else return null;
         });
         Optional<List<WorldElement>> selectedElements = dialog.showAndWait();
-        handleElemSelectionResult(selectedElements);
+        handleElemSelectionResult(selectedElements, scene);
     }
 
-    private void handleElemSelectionResult(Optional<List<WorldElement>> selectedElements) {
-        if (selectedElements.isPresent() && !selectedElements.get().isEmpty())
-            // todo: save to database
-            System.out.println(selectedElements.get());
+    private void handleElemSelectionResult(Optional<List<WorldElement>> selectedElements, ChapterScene scene) {
+        if (selectedElements.isPresent() && !selectedElements.get().isEmpty()) {
+            // save to database
+            if (scene.getWorldElements().size() == selectedElements.get().size()
+                    && new HashSet<>(scene.getWorldElements()).containsAll(selectedElements.get())
+                    && new HashSet<>(selectedElements.get()).containsAll(scene.getWorldElements()))
+                return;
+            scene.setWorldElements(selectedElements.get());
+            storyWorldDao.updateChapter(displayedChapter);
+        }
+        // refresh the view
+        refreshLinkedObjView();
+    }
+
+    private void refreshLinkedObjView() {
+        displayChapterWorldElements(displayedChapter.getScenes());
     }
 }

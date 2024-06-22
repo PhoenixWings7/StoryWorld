@@ -1,5 +1,7 @@
 package pl.edu.pjwstk.s24987.data;
 
+import pl.edu.pjwstk.s24987.model.Chapter;
+import pl.edu.pjwstk.s24987.model.ChapterScene;
 import pl.edu.pjwstk.s24987.model.Story;
 import pl.edu.pjwstk.s24987.model.World;
 
@@ -33,4 +35,6 @@ public interface StoryWorldDao {
     public void setSelectedStoryId(Long selectedStoryId);
 
     public Story getSelectedStory();
+
+    public void updateChapter(Chapter chapter);
 }

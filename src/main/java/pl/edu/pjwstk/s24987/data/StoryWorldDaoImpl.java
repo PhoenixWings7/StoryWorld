@@ -1,9 +1,7 @@
 package pl.edu.pjwstk.s24987.data;
 
 import org.hibernate.Session;
-import pl.edu.pjwstk.s24987.model.Story;
-import pl.edu.pjwstk.s24987.model.User;
-import pl.edu.pjwstk.s24987.model.World;
+import pl.edu.pjwstk.s24987.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,5 +110,13 @@ public class StoryWorldDaoImpl implements StoryWorldDao {
     @Override
     public Story getSelectedStory() {
         return lastWorld.getStory(lastStoryId);
+    }
+
+    @Override
+    public void updateChapter(Chapter chapter) {
+        Session session = LocalDbHandler.getCurrentSession();
+        session.merge(chapter);
+        session.refresh(chapter);
+        LocalDbHandler.closeCurrentSession();
     }
 }

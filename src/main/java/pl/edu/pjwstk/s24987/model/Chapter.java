@@ -13,7 +13,7 @@ public class Chapter {
     @Column(nullable = false)
     @Basic(optional = false)
     private String title;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH})
     private List<ChapterScene> scenes = new ArrayList<>();
     @ManyToOne
     private Story story;
