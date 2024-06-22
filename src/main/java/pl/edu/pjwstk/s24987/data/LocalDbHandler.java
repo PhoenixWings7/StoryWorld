@@ -27,6 +27,7 @@ public class LocalDbHandler {
         World myWorld = new World("Magical World", myUser);
         myUser.addWorld(myWorld);
         WorldElement myCharacter = new Character("Cassie", myWorld);
+        WorldElement myCharacter2 = new Character("Thadred", myWorld);
         Animal myAnimal = new Animal("Cloud Squirrel", myWorld);
         myWorld.addNewStory("Silly Little Story");
         myWorld.getStories().getFirst().addNewChapter();
