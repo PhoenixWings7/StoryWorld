@@ -1,10 +1,14 @@
 package pl.edu.pjwstk.s24987.controllers;
 
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ObservableBooleanValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import pl.edu.pjwstk.s24987.data.StoryWorldDao;
@@ -17,6 +21,7 @@ import pl.edu.pjwstk.s24987.model.WorldElement;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class SingleStoryViewController implements Initializable {
@@ -126,11 +131,57 @@ public class SingleStoryViewController implements Initializable {
             }
 
             // create and add the new TitledPane
-            Button linkObjBtn = new Button("Link object");
-            VBox contentVBox = new VBox(objListBox, linkObjBtn);
-            TitledPane pane = new TitledPane(STR."Scene \{i + 1}", contentVBox);
+            TitledPane pane = getTitledPane(scene, objListBox, i);
             panes.add(pane);
         }
         sceneObjectsAccordion.getPanes().setAll(panes);
+    }
+
+    private TitledPane getTitledPane(ChapterScene scene, VBox objListBox, int i) {
+        Button linkObjBtn = new Button("Link object");
+        linkObjBtn.setOnAction(actionEvent -> onLinkObjBtnClicked(actionEvent, scene));
+        VBox contentVBox = new VBox(objListBox, linkObjBtn);
+        return new TitledPane(STR."Scene \{i + 1}", contentVBox);
+    }
+
+    private void onLinkObjBtnClicked(ActionEvent actionEvent, ChapterScene scene) {
+        Dialog<List<WorldElement>> dialog = new Dialog<>();
+        dialog.setTitle("Choose objects to link");
+        dialog.getDialogPane().getButtonTypes().setAll(ButtonType.APPLY, ButtonType.CANCEL);
+
+        List<WorldElement> allWorldElements = scene.getChapter().getStory().getWorld().getWorldElements();
+        ListView<WorldElement> choices = new ListView<>();
+        choices.getItems().setAll(allWorldElements);
+        List<WorldElement> selected = new ArrayList<>();
+
+        // map world elements to a list of choices
+        choices.setCellFactory(CheckBoxListCell.forListView(worldElement -> {
+            boolean doSelect = scene.getWorldElements().contains(worldElement);
+            selected.add(worldElement);
+            ObservableBooleanValue observableValue = new SimpleBooleanProperty(doSelect);
+            // handle checkbox state change
+            observableValue.addListener((observableVal, wasSelected, isSelected) -> {
+                if (!wasSelected && isSelected)
+                    selected.add(worldElement);
+                else if (wasSelected && !isSelected)
+                    selected.remove(worldElement);
+            });
+            return observableValue;
+        }));
+
+        dialog.getDialogPane().setContent(choices);
+        dialog.setResultConverter(dialogBtn -> {
+            if (!dialogBtn.getButtonData().isCancelButton())
+                return selected;
+            else return null;
+        });
+        Optional<List<WorldElement>> selectedElements = dialog.showAndWait();
+        handleElemSelectionResult(selectedElements);
+    }
+
+    private void handleElemSelectionResult(Optional<List<WorldElement>> selectedElements) {
+        if (selectedElements.isPresent() && !selectedElements.get().isEmpty())
+            // todo: save to database
+            System.out.println(selectedElements.get());
     }
 }
