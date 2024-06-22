@@ -1,7 +1,10 @@
 package pl.edu.pjwstk.s24987.data;
 
 import org.hibernate.Session;
-import pl.edu.pjwstk.s24987.model.*;
+import pl.edu.pjwstk.s24987.model.Chapter;
+import pl.edu.pjwstk.s24987.model.Story;
+import pl.edu.pjwstk.s24987.model.User;
+import pl.edu.pjwstk.s24987.model.World;
 
 import java.util.ArrayList;
 import java.util.List;
