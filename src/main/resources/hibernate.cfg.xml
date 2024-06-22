@@ -14,13 +14,10 @@
         <property name="show_sql">true</property>
 
         <!-- Drop and create the database schema on startup-->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
 
         <!-- Enable Hibernate stats in the logs -->
         <property name="hibernate.generate_statistics">false</property>
-
-        <!-- Auto-generate schema -->
-         <property name = "hibernate.hbm2ddl.auto">create</property>
 
         <!-- Full names of annotated entity classes -->
         <mapping class="pl.edu.pjwstk.s24987.model.World"/>
